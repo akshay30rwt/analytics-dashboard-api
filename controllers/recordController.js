@@ -9,7 +9,7 @@ const addRecord = async (req, res, next) => {
             message: Array.isArray(req.body)
                 ? `${record.length} records added successfully`
                 : "Record added successfully",
-            data: records
+            data: record
         });
     }
     catch(error) {
