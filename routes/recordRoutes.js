@@ -7,6 +7,7 @@ const { addRecord, getAllRecords, getRecordById, updateRecord, deleteRecord, get
 const router = express.Router();
 
 router.post('/', validate(recordSchema), addRecord);
+router.post('/bulk', validate(Joi.array().items(recordSchema).min(1)), addRecord);
 router.get('/', getAllRecords);
 
 router.get('/summary/category', getRevenueByCategory);
