@@ -5,6 +5,7 @@ const recordSchema = Joi.object({
     category: Joi.string().valid('Electronics', 'Clothing', 'Food', 'Books', 'Other').required(),
     amount: Joi.number().min(0).required(),
     quantity: Joi.number().min(1).required(),
+    date: Joi.date().optional(),
     region: Joi.string().valid('North', 'South', 'East', 'West').required(),
     soldBy: Joi.string().min(2).max(100).required()
 });
