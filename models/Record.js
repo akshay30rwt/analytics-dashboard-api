@@ -31,6 +31,10 @@ const recordSchema = new mongoose.Schema({
     }
 });
 
+recordSchema.index({ category: 1 });
+recordSchema.index({ region: 1 });
+recordSchema.index({ amount: -1 });
+
 const Record = mongoose.model('Record', recordSchema);
 
 module.exports = Record;
