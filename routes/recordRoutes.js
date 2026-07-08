@@ -1,4 +1,5 @@
 const express = require('express');
+const Joi = require('joi');
 const { recordSchema } = require('../validators/recordValidator');
 const validate = require('../middleware/validate');
 
