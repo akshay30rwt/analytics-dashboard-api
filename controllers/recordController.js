@@ -6,8 +6,10 @@ const addRecord = async (req, res, next) => {
         const record = await Record.create(req.body);
 
         return res.status(201).json({
-            message: 'Record added successfully',
-            record
+            message: Array.isArray(req.body)
+                ? `${record.length} records added successfully`
+                : "Record added successfully",
+            data: records
         });
     }
     catch(error) {
@@ -165,7 +167,7 @@ const getMonthlyRevenue = async (req, res, next) => {
                 $match: {
                     date: {
                         $gte: new Date(`${year}-01-01`),
-                        $lt: new Date(`${Number(year) + 1}-12-31`)
+                        $lt: new Date(`${Number(year) + 1}-01-01`)
                     }
                 }
             },
